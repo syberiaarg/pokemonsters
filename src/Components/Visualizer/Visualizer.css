@@ -1,0 +1,11 @@
+.ListContainer {
+  background-color: cornflowerblue;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 25px;
+  width: 50%;
+}
+
+.PokemonList {
+  font-family: Helvetica, sans-serif;
+}
