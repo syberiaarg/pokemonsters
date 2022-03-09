@@ -1,25 +1,32 @@
+.pokeData {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.pokeInfo {
+  display: flex;
+  flex-direction: column;
+}
+
 .pokeForm {
   display: flex;
 }
 
 .pokeType {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
-.pokeName {
-  display: flex;
-  flex-direction: column;
-}
-
-.pokeData {
-  display: flex;
-  flex-direction: column;
-  word-spacing: 0, 5%;
+.pokeType label {
+  margin-right: 5px;
 }
 
 .pokeSprite {
-  position: absolute;
-  padding-left: 15%;
-  margin-top: -1%;
+  min-width: 120px;
+  max-height: 200px;
+}
+
+.pokeSprite img {
+  width: 100%;
 }
