@@ -1,0 +1,25 @@
+.pokeForm {
+  display: flex;
+}
+
+.pokeType {
+  display: flex;
+  flex-direction: column;
+}
+
+.pokeName {
+  display: flex;
+  flex-direction: column;
+}
+
+.pokeData {
+  display: flex;
+  flex-direction: column;
+  word-spacing: 0, 5%;
+}
+
+.pokeSprite {
+  position: absolute;
+  padding-left: 15%;
+  margin-top: -1%;
+}

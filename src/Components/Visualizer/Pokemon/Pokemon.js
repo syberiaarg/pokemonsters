@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Pokemon.css";
 
 const Pokemon = ({ name, url }) => {
   const [pokeImage, setPokeImage] = useState("");
@@ -9,6 +10,10 @@ const Pokemon = ({ name, url }) => {
 
   const nameLabelFix = ({ name }) => {
     return name.charAt(0).toUpperCase() + name.slice(1);
+  };
+
+  const typeLabelFix = (types) => {
+    return types.charAt(0).toUpperCase() + types.slice(1);
   };
 
   useEffect(() => {
@@ -24,27 +29,24 @@ const Pokemon = ({ name, url }) => {
   }, []);
 
   return (
-    <div>
+    <div className="pokeData">
       <div className="pokeName">
-        <label>{nameLabelFix({ name })}</label>
+        <label>{nameLabelFix({ name })}</label> <label>ID: {pokeID}</label>
       </div>
-      <div className="pokeID">
-        <label>ID: {pokeID}</label>
-      </div>
-      <div className="type">
+      <div className="pokeType">
         {pokeType.map((types) => (
-          <div className="pokeTypes">
-            <label key={types["type"]["name"]}>{types["type"]["name"]}</label>
+          <div>
+            <label key={types["type"]["name"]}>
+              {typeLabelFix(types["type"]["name"])}
+            </label>
           </div>
         ))}
       </div>
-      <div className="pokeWeight">
+      <div className="pokeForm">
         <label key={pokeWeight}>Weight: {pokeWeight}</label>
-      </div>
-      <div className="pokeHeight">
         <label key={pokeHeight}>Height: {pokeHeight}</label>
       </div>
-      <div>
+      <div className="pokeSprite">
         <img alt="Sprite" src={pokeImage} />
       </div>
     </div>
