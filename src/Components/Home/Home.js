@@ -4,14 +4,14 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="Home">
-      <div className="LogoContainer">
-        <header className="Logo">
+      <header className="LogoContainer">
+        <div className="Logo">
           <img
             alt="Logo"
             src={require("./../../Structure/Images/pokemon_logo.png")}
           />
-        </header>
-      </div>
+        </div>
+      </header>
       <Visualizer />
     </div>
   );

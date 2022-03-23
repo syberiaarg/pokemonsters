@@ -1,13 +1,29 @@
 .ListContainer {
+  overflow-y: scroll;
   background-color: cornflowerblue;
-  margin: 3%;
-  padding: 3%;
   border-radius: 25px;
-  width: 50%;
+  padding-top: 2%;
+  width: 70%;
+  max-height: 970px;
 }
 
 .PokemonList {
   font-family: Helvetica, sans-serif;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
+  gap: 3%;
+  place-items: center;
+}
+
+.pokeButton {
   display: flex;
-  flex-direction: column;
+  margin-bottom: 1%;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  width: 90%;
+  justify-content: center;
+  height: 100%;
 }

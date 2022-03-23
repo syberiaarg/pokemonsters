@@ -1,5 +1,8 @@
 .Home {
-  background-color: crimson;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-primary);
   width: 100%;
   height: 100%;
 }
