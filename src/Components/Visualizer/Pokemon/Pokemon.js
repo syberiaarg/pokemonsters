@@ -32,7 +32,11 @@ const Pokemon = ({ name, url }) => {
   return (
     <div className="pokeData">
       <div className="pokeInfo">
-        <label id="name">{firstLetterUpper(name)}</label>
+        <div className="name">
+          <label>
+            <strong>{firstLetterUpper(name)}</strong>
+          </label>
+        </div>
         <label>ID: {pokemon.id}</label>
         <div className="pokeType">
           {pokemon.types.map(({ type }) => (

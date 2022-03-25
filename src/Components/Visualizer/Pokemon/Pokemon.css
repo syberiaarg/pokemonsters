@@ -1,16 +1,27 @@
 .pokeData {
   display: flex;
-  margin-bottom: 1%;
   align-items: center;
-  background-color: white;
-  border-radius: 20px;
-  width: 90%;
+  background-color: #424242;
+  opacity: 70;
+  border-radius: 10px;
+  font-size: 80%;
+  font-family: "Flexo";
+  width: 80%;
+  height: 80%;
   justify-content: center;
+  text-align: end;
+  padding-top: 2%;
+  padding-left: 7%;
+  color: white;
 }
 
 .pokeInfo {
   display: flex;
   flex-direction: column;
+}
+
+.name label {
+  font-size: 16px;
 }
 
 .pokeForm {
@@ -20,6 +31,7 @@
 .pokeType {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
 }
 
 .pokeType label {
@@ -32,13 +44,14 @@
 }
 
 .pokeSprite img {
-  width: 100%;
+  width: 90%;
 }
 
 .type {
-  border: solid 1px;
-  border-radius: 10px;
-  padding: 4px;
+  border: outset 0, 5px;
+  border-radius: 5px;
+  padding: 3px;
+  color: black;
 }
 
 .type label {

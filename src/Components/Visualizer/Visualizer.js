@@ -10,8 +10,8 @@ const Visualizer = () => {
 
   useEffect(() => {
     const pokeParams = {
-      limit: 17,
-      offset: page * 17,
+      limit: 12,
+      offset: page * 12,
     };
 
     fetch(`${apiUrl}?limit=${pokeParams.limit}&offset=${pokeParams.offset}`)
@@ -31,10 +31,10 @@ const Visualizer = () => {
         {pokemons.map(({ name, url }) => (
           <Pokemon key={name} name={name} url={url} />
         ))}
-        <button className="pokeButton" onClick={getMorePokemons}>
-          Get More
-        </button>
       </div>
+      <button className="pokeButton" onClick={getMorePokemons}>
+        Load More Pokemons
+      </button>
     </div>
   );
 };
