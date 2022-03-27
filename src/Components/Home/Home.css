@@ -12,11 +12,12 @@
 }
 
 .logoBox {
-  width: 80px;
-  height: 80px;
-  justify-content: center;
-  display: flex;
-  position: fixed;
-  top: 4%;
-  left: 26%;
+  display: inline;
+  width: 500px;
+  height: 184px;
+  margin: 25%;
+}
+
+.logo {
+  max-width: 50%;
 }

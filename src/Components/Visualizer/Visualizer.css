@@ -1,9 +1,20 @@
 .ListContainer {
   background-color: #2a75bb;
-  border-radius: 20px;
-  padding-top: 8%;
-  padding-bottom: 2%;
-  width: 60%;
+  border-radius: 10px;
+  width: 800px;
+  height: 500px;
+  margin-top: 3%;
+  overflow: scroll;
+}
+
+.ListContainer::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+.ListContainer::-webkit-scrollbar-thumb {
+  background: #77baf8;
+  border-radius: 10px;
 }
 
 .PokemonList {
@@ -12,7 +23,7 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-flow: row;
-  gap: 1%;
+  gap: 10px;
   place-items: center;
 }
 

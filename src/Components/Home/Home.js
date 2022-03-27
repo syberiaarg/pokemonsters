@@ -7,6 +7,7 @@ const Home = () => {
       <header className="LogoContainer">
         <div className="logoBox">
           <img
+            className="logo"
             alt="Logo"
             src={require("./../../Structure/Images/pokemon_logo.png")}
           />

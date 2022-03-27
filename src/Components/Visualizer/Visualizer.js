@@ -4,14 +4,14 @@ import Pokemon from "./Pokemon";
 import "./Visualizer.css";
 
 const Visualizer = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [pokemons, setPokemons] = useState([]);
   // const [pokeParams, setPokeParams] = useState();
 
   useEffect(() => {
     const pokeParams = {
-      limit: 12,
-      offset: page * 12,
+      limit: page * 12,
+      offset: 0,
     };
 
     fetch(`${apiUrl}?limit=${pokeParams.limit}&offset=${pokeParams.offset}`)
