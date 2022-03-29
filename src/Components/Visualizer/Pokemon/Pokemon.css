@@ -1,0 +1,47 @@
+.pokeData {
+  display: flex;
+  margin-bottom: 1%;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  width: 90%;
+  justify-content: center;
+}
+
+.pokeInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.pokeForm {
+  display: flex;
+}
+
+.pokeType {
+  display: flex;
+  flex-direction: row;
+}
+
+.pokeType label {
+  margin-right: 5px;
+}
+
+.pokeSprite {
+  min-width: 120px;
+  max-height: 200px;
+}
+
+.pokeSprite img {
+  width: 100%;
+}
+
+.type {
+  border: solid 1px;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.type label {
+  margin-left: auto;
+  margin-right: auto;
+}
