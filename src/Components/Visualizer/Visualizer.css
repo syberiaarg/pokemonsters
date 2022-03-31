@@ -1,8 +1,8 @@
 .ListContainer {
   background-color: #2a75bb;
   border-radius: 10px;
-  width: 800px;
-  height: 500px;
+  width: 80%;
+  height: 100%;
   margin-top: 3%;
   overflow: scroll;
 }
@@ -40,3 +40,10 @@
   top: 40%;
   right: 5%;
 }
+
+/* @media (max-width: 1024px) {
+  .ListContainer {
+    width: 800px;
+    height: 490px;
+  }
+} */

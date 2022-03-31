@@ -10,7 +10,7 @@ const initialPokemon = {
   height: 0,
   sprite: "",
   image: "",
-  stats: "",
+  abilities: [],
 };
 
 const Pokemon = ({ name, url }) => {
@@ -30,7 +30,7 @@ const Pokemon = ({ name, url }) => {
           sprite: data.sprites.front_default,
           altsprite: data.sprites.back_default,
           image: data.sprites.other.dream_world.front_default,
-          stats: data.stats,
+          abilities: data.abilities,
         });
       });
   }, []);
@@ -62,9 +62,12 @@ const Pokemon = ({ name, url }) => {
       </div>
       <div className="moreInfo">
         {completeData && (
-          <div className="images">
+          <div className="moreData">
             <img alt="altSprite" src={pokemon.altsprite} />
             <img alt="otherImage" src={pokemon.image} />
+            {pokemon.abilities.map(({ ability }) => (
+              <label key={ability.name}>{ability.name}</label>
+            ))}
           </div>
         )}
       </div>
