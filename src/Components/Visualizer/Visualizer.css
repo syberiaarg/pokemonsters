@@ -1,29 +1,49 @@
 .ListContainer {
-  overflow-y: scroll;
-  background-color: cornflowerblue;
-  border-radius: 25px;
-  padding-top: 2%;
-  width: 70%;
-  max-height: 970px;
+  background-color: #2a75bb;
+  border-radius: 10px;
+  width: 80%;
+  height: 100%;
+  margin-top: 3%;
+  overflow: scroll;
+}
+
+.ListContainer::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+.ListContainer::-webkit-scrollbar-thumb {
+  background: #77baf8;
+  border-radius: 10px;
 }
 
 .PokemonList {
-  font-family: Helvetica, sans-serif;
+  font-family: Flexo;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-flow: row;
-  gap: 3%;
+  gap: 10px;
   place-items: center;
 }
 
 .pokeButton {
-  display: flex;
-  margin-bottom: 1%;
-  align-items: center;
-  background-color: white;
-  border-radius: 20px;
-  width: 90%;
+  background-color: #ffcb05;
+  border-radius: 5px;
+  border-collapse: collapse;
+  font-family: Flexo;
+  font-size: 110%;
+  width: 10%;
+  height: 10%;
+  position: fixed;
   justify-content: center;
-  height: 100%;
+  top: 40%;
+  right: 5%;
 }
+
+/* @media (max-width: 1024px) {
+  .ListContainer {
+    width: 800px;
+    height: 490px;
+  }
+} */

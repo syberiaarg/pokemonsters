@@ -4,14 +4,14 @@ import Pokemon from "./Pokemon";
 import "./Visualizer.css";
 
 const Visualizer = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [pokemons, setPokemons] = useState([]);
   // const [pokeParams, setPokeParams] = useState();
 
   useEffect(() => {
     const pokeParams = {
-      limit: 17,
-      offset: page * 17,
+      limit: page * 12,
+      offset: 0,
     };
 
     fetch(`${apiUrl}?limit=${pokeParams.limit}&offset=${pokeParams.offset}`)
@@ -31,10 +31,10 @@ const Visualizer = () => {
         {pokemons.map(({ name, url }) => (
           <Pokemon key={name} name={name} url={url} />
         ))}
-        <button className="pokeButton" onClick={getMorePokemons}>
-          Get More
-        </button>
       </div>
+      <button className="pokeButton" onClick={getMorePokemons}>
+        Load More Pokemons
+      </button>
     </div>
   );
 };
