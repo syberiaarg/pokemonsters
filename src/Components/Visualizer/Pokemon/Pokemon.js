@@ -66,7 +66,7 @@ const Pokemon = ({ name, url }) => {
             <img alt="altSprite" src={pokemon.altsprite} />
             <img alt="otherImage" src={pokemon.image} />
             {pokemon.abilities.map(({ ability }) => (
-              <label key={ability.name}>{ability.name}</label>
+              <div key={ability.name}>{ability.name}</div>
             ))}
           </div>
         )}
