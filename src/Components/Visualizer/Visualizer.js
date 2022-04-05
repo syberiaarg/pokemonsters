@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { apiUrl } from "../../constants/endpoints";
+import { API_URL } from "src/constants/env";
 import Pokemon from "./Pokemon";
 import "./Visualizer.css";
 
 const Visualizer = () => {
   const [page, setPage] = useState(1);
   const [pokemons, setPokemons] = useState([]);
-  // const [pokeParams, setPokeParams] = useState();
+  const [completeData, showCompleteData] = useState(false);
 
   useEffect(() => {
     const pokeParams = {
@@ -14,7 +14,7 @@ const Visualizer = () => {
       offset: 0,
     };
 
-    fetch(`${apiUrl}?limit=${pokeParams.limit}&offset=${pokeParams.offset}`)
+    fetch(`${API_URL}?limit=${pokeParams.limit}&offset=${pokeParams.offset}`)
       .then((response) => response.json())
       .then((data) => {
         setPokemons(data.results);
@@ -29,7 +29,13 @@ const Visualizer = () => {
     <div className="ListContainer">
       <div className="PokemonList">
         {pokemons.map(({ name, url }) => (
-          <Pokemon key={name} name={name} url={url} />
+          <Pokemon
+            key={name}
+            name={name}
+            url={url}
+            completeData={completeData}
+            showCompleteData={showCompleteData}
+          />
         ))}
       </div>
       <button className="pokeButton" onClick={getMorePokemons}>

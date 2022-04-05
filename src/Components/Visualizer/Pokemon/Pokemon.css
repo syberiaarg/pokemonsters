@@ -4,18 +4,21 @@
   background-color: #424242;
   opacity: 70;
   border-radius: 10px;
-  font-size: 80%;
+  font-size: 12px;
   font-family: "Flexo";
-  width: 80%;
+  width: 20rem;
   height: 80%;
   justify-content: center;
   text-align: end;
-  padding-top: 2%;
-  padding-left: 7%;
   color: white;
   transition: width, height, font-size, 0.7;
   transition-delay: 0.2s;
   transition-duration: 0.5s;
+  padding: 0.5rem;
+}
+
+.expandedData {
+  width: 200px;
 }
 
 .pokeData:hover {
