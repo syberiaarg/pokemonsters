@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { POKEMON } from "src/constants/endpoints";
 import { API_URL } from "src/constants/env";
 import Pokemon from "./Pokemon";
 import "./Visualizer.css";
@@ -14,7 +15,7 @@ const Visualizer = () => {
       offset: 0,
     };
 
-    fetch(`${API_URL}?limit=${pokeParams.limit}&offset=${pokeParams.offset}`)
+    fetch(`${API_URL}${POKEMON}?limit=${pokeParams.limit}&offset=${pokeParams.offset}`)
       .then((response) => response.json())
       .then((data) => {
         setPokemons(data.results);

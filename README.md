@@ -9,7 +9,7 @@ Creates .env file
 REACT_APP_VERSION=0.1.0
 REACT_APP_NAME=Pokemonsters
 
-REACT_APP_API_BASE_URL=https://pokeapi.co/api/v2/pokemon
+REACT_APP_API_BASE_URL=https://pokeapi.co/api/v2/
 
 ## Available Scripts
 
