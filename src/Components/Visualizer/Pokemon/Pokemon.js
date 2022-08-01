@@ -34,7 +34,6 @@ const Pokemon = ({ name, url, completeData, showCompleteData }) => {
         });
       });
   }, []);
-
   return (
     <>
       {!completeData ? (

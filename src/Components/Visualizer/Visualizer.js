@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { POKEMON } from "src/constants/endpoints";
-import { API_URL } from "src/constants/env";
+import getPokemons from "src/services/pokemons";
 import Pokemon from "./Pokemon";
 import "./Visualizer.css";
 
@@ -10,22 +9,14 @@ const Visualizer = () => {
   const [completeData, showCompleteData] = useState(false);
 
   useEffect(() => {
-    const pokeParams = {
-      limit: page * 12,
-      offset: 0,
-    };
-
-    fetch(`${API_URL}${POKEMON}?limit=${pokeParams.limit}&offset=${pokeParams.offset}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPokemons(data.results);
-      });
+    getPokemons(page).then((data) => setPokemons(data.results));
   }, [page]);
+
+  console.log(pokemons);
 
   const getMorePokemons = () => {
     setPage(page + 1);
   };
-
   return (
     <div className="ListContainer">
       <div className="PokemonList">

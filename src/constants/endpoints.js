@@ -1,2 +1,1 @@
-export const apiUrl = "https://pokeapi.co/api/v2/pokemon";
 export const POKEMON = "pokemon"; 

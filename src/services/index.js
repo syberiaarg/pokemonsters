@@ -1,11 +1,8 @@
-import { apiUrl } from "src/constants/endpoints";
+import axios from "axios";
+import { API_URL } from "src/constants";
 
-export const fetchPokemons = async () => {
-  const response = await fetch(apiUrl);
-  return response.json();
-};
+const instance = axios.create({
+  baseURL: API_URL,
+});
 
-export const fetchPokeData = async (url) => {
-  const response = await fetch(url);
-  return response.json();
-};
+export default instance;
