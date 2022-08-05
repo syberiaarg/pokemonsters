@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { showPokemon } from "src/services";
 import { firstLetterUpper } from "src/utils";
 import CompletePokemon from "../CompletePokemon";
 import "./Pokemon.css";
@@ -16,24 +17,12 @@ const initialPokemon = {
 
 const Pokemon = ({ name, url, completeData, showCompleteData }) => {
   const [pokemon, setPokemon] = useState(initialPokemon);
+  console.log(pokemon);
 
   useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setPokemon({
-          id: data.id,
-          name: name,
-          types: data.types,
-          weight: data.weight,
-          height: data.height,
-          sprite: data.sprites.front_default,
-          altsprite: data.sprites.back_default,
-          image: data.sprites.other.dream_world.front_default,
-          abilities: data.abilities,
-        });
-      });
-  }, []);
+    showPokemon(name).then((data) => setPokemon(data));
+  }, [name]);
+
   return (
     <>
       {!completeData ? (

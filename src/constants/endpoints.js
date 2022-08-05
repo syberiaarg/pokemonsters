@@ -1,1 +1,1 @@
-export const POKEMON = "pokemon"; 
+export const POKEMON = "pokemon";

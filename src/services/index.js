@@ -1,8 +1,2 @@
-import axios from "axios";
-import { API_URL } from "src/constants";
-
-const instance = axios.create({
-  baseURL: API_URL,
-});
-
-export default instance;
+export * from "./instances";
+export * from "./pokemons";

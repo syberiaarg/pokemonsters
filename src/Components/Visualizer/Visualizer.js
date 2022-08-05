@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getPokemons from "src/services/pokemons";
+import { getPokemons } from "src/services";
 import Pokemon from "./Pokemon";
 import "./Visualizer.css";
 
@@ -11,8 +11,6 @@ const Visualizer = () => {
   useEffect(() => {
     getPokemons(page).then((data) => setPokemons(data.results));
   }, [page]);
-
-  console.log(pokemons);
 
   const getMorePokemons = () => {
     setPage(page + 1);
