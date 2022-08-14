@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { firstLetterUpper, wordSpace } from "src/utils";
 import Pokemon from "../Pokemon";
 
 const CompletePokemon = ({ pokemon, childToParent }) => {
@@ -13,13 +14,21 @@ const CompletePokemon = ({ pokemon, childToParent }) => {
     <div
       className="moreData"
       onClick={() => handleResult(!result)}>
-      <img alt="altSprite" src={pokemon.altsprite} />
-      <img alt="otherImage" src={pokemon.image} />
+
+      <div className="bigName">
+        <strong>{firstLetterUpper(pokemon.name)}</strong>
+      </div>
+      <div className="bigSprite">
+        <img alt="altSprite" src={pokemon.altsprite} />
+        <img alt="otherImage" src={pokemon.image} />
+      </div>
+
       {pokemon.abilities.map(({ ability }) => (
-        <label key={ability.name}>{ability.name}</label>
+        <div key={ability.name}>{wordSpace(firstLetterUpper(ability.name))}</div>
       ))}
     </div>
   ) : (
+
     <Pokemon name={pokemon.name} childToParent={childToParent} />
   )
   )
