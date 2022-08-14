@@ -15,9 +15,10 @@ const initialPokemon = {
   abilities: [],
 };
 
-const Pokemon = ({ name, url, completeData, showCompleteData }) => {
+
+const Pokemon = ({ name, url, childToParent }) => {
   const [pokemon, setPokemon] = useState(initialPokemon);
-  console.log(pokemon);
+  const [completeData, showCompleteData] = useState(false);
 
   useEffect(() => {
     showPokemon(name).then((data) => setPokemon(data));
@@ -55,7 +56,7 @@ const Pokemon = ({ name, url, completeData, showCompleteData }) => {
           </div>
         </div>
       ) : (
-        <CompletePokemon pokemon={pokemon} />
+        <CompletePokemon pokemon={pokemon} childToParent={childToParent} />
       )}
     </>
   );
