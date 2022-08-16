@@ -18,8 +18,11 @@ const CompletePokemon = ({ pokemon, childToParent }) => {
       <div className="bigName">
         <strong>{firstLetterUpper(pokemon.name)}</strong>
       </div>
-      <div className="bigSprite">
+      <div className="bigSprites">
+        <img alt="Sprite" src={pokemon.sprite} />
         <img alt="altSprite" src={pokemon.altsprite} />
+      </div>
+      <div className="bigImage">
         <img alt="otherImage" src={pokemon.image} />
       </div>
 
