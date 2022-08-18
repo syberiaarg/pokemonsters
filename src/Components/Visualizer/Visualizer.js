@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getPokemons } from "src/services";
+import { Pokebutton } from "../Interface";
 import Pokemon from "./Pokemon";
 import "./Visualizer.css";
 
@@ -28,9 +29,7 @@ const Visualizer = () => {
         ))}
       </div>
       {!data && (
-        <button className="pokeButton" onClick={getMorePokemons}>
-          Load More Pokemons
-        </button>
+        <Pokebutton string={"Load More Pokemons"} onClick={getMorePokemons} />
       )}
     </div>
   );
