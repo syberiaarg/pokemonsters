@@ -1,0 +1,14 @@
+.bigButton {
+    background-color: #ffcb05;
+    border-radius: 5px;
+    border-collapse: collapse;
+    font-family: Flexo;
+    font-size: 14px;
+    font-weight: bold;
+    width: 110px;
+    height: 45px;
+    position: fixed;
+    justify-content: center;
+    top: 86%;
+    right: 10%;
+}

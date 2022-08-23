@@ -1,49 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { POKEMON } from "src/constants/endpoints";
-import { API_URL } from "src/constants/env";
+import { getPokemons } from "src/services";
+import { Pokebutton } from "../Button";
 import Pokemon from "./Pokemon";
 import "./Visualizer.css";
 
 const Visualizer = () => {
   const [page, setPage] = useState(1);
   const [pokemons, setPokemons] = useState([]);
-  const [completeData, showCompleteData] = useState(false);
+  const [data, setData] = useState(false);
 
   useEffect(() => {
-    const pokeParams = {
-      limit: page * 12,
-      offset: 0,
-    };
-
-    fetch(`${API_URL}${POKEMON}?limit=${pokeParams.limit}&offset=${pokeParams.offset}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setPokemons(data.results);
-      });
-  }, [page]);
+    getPokemons(page).then((data) => setPokemons(data.results));
+  }, [page, data]);
 
   const getMorePokemons = () => {
     setPage(page + 1);
   };
 
+
   return (
     <div className="ListContainer">
       <div className="PokemonList">
         {pokemons.map(({ name, url }) => (
-          <Pokemon
-            key={name}
-            name={name}
-            url={url}
-            completeData={completeData}
-            showCompleteData={showCompleteData}
-          />
+          <Pokemon key={name} name={name} url={url} />
         ))}
       </div>
-      <button className="pokeButton" onClick={getMorePokemons}>
-        Load More Pokemons
-      </button>
+      {!data && (
+        <Pokebutton string={"Load More Pokemons"} onClick={getMorePokemons} />
+      )}
     </div>
   );
 };
+
+
 
 export default Visualizer;
