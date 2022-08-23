@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getPokemons } from "src/services";
-import { Pokebutton } from "../Interface";
+import { Pokebutton } from "../Button";
 import Pokemon from "./Pokemon";
 import "./Visualizer.css";
 
@@ -8,9 +8,6 @@ const Visualizer = () => {
   const [page, setPage] = useState(1);
   const [pokemons, setPokemons] = useState([]);
   const [data, setData] = useState(false);
-
-  const childToParent = (childdata) => (setData(childdata));
-
 
   useEffect(() => {
     getPokemons(page).then((data) => setPokemons(data.results));
@@ -25,7 +22,7 @@ const Visualizer = () => {
     <div className="ListContainer">
       <div className="PokemonList">
         {pokemons.map(({ name, url }) => (
-          <Pokemon key={name} name={name} url={url} childToParent={childToParent} />
+          <Pokemon key={name} name={name} url={url} />
         ))}
       </div>
       {!data && (

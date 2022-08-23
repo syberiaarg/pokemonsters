@@ -2,18 +2,12 @@ import React, { useEffect, useState } from "react";
 import { firstLetterUpper, wordSpace } from "src/utils";
 import Pokemon from "../Pokemon";
 
-const CompletePokemon = ({ pokemon, childToParent }) => {
+const CompletePokemon = ({ pokemon, completeData, showCompleteData }) => {
 
-  const [result, handleResult] = useState(true)
-
-  useEffect(() => {
-    childToParent(result)
-  }, [result])
-
-  return (result ? (
+  return (
     <div
       className="moreData"
-      onClick={() => handleResult(!result)}>
+      onClick={() => showCompleteData(!completeData)}>
 
       <div className="bigName">
         <strong>{firstLetterUpper(pokemon.name)}</strong>
@@ -30,10 +24,6 @@ const CompletePokemon = ({ pokemon, childToParent }) => {
         <div key={ability.name}>{wordSpace(firstLetterUpper(ability.name))}</div>
       ))}
     </div>
-  ) : (
-
-    <Pokemon name={pokemon.name} childToParent={childToParent} />
-  )
   )
 };
 

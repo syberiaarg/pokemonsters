@@ -1,10 +1,11 @@
 .ListContainer {
-  background-color: #1565c0;
   border-radius: 10px;
   width: 80%;
   height: 70%;
   margin-top: 25px;
   overflow-y: scroll;
+  background: linear-gradient(0deg, #4b6cb7 0%, #182848 100%);
+  position: relative;
 }
 
 .ListContainer::-webkit-scrollbar {
@@ -25,4 +26,5 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 15px;
   padding: 1rem;
+  position: relative;
 }

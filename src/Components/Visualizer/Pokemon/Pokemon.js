@@ -37,7 +37,7 @@ const Pokemon = ({ name, url, childToParent }) => {
                 <strong>{firstLetterUpper(name)}</strong>
               </label>
             </div>
-            <label>N°: {pokemon.id}</label>
+            <label className="pokeID">N°: {pokemon.id}</label>
             <div className="pokeType">
               {pokemon.types.map(({ type }) => (
                 <div
@@ -56,7 +56,7 @@ const Pokemon = ({ name, url, childToParent }) => {
           </div>
         </div>
       ) : (
-        <CompletePokemon pokemon={pokemon} childToParent={childToParent} />
+        <CompletePokemon pokemon={pokemon} completeData={completeData} showCompleteData={showCompleteData} />
       )}
     </>
   );
