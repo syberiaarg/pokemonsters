@@ -43,8 +43,9 @@ const Pokemon = ({ name, url, childToParent }) => {
                 <div
                   className="type"
                   style={{ backgroundColor: `var(--color-${type.name})` }}
+                  key={type.name}
                 >
-                  <label key={type.name}>{firstLetterUpper(type.name)}</label>
+                  <label>{firstLetterUpper(type.name)}</label>
                 </div>
               ))}
             </div>

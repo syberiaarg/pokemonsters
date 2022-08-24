@@ -1,3 +1,4 @@
+import ResponsiveAppBar from "../Navbar/Navbar";
 import Visualizer from "../Visualizer";
 import "./Home.css";
 
@@ -12,10 +13,13 @@ const Home = () => {
             src={require("./../../Structure/Images/pokemon_logo.png")}
           />
         </div>
+        <div className="pokeAppBar">
+          <ResponsiveAppBar />
+        </div>
       </header>
       <Visualizer />
     </div>
   );
 };
 
-export default Home;
+export default Home
