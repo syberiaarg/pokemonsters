@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { firstLetterUpper, wordSpace } from "src/utils";
-import Pokemon from "../Pokemon";
 
 const CompletePokemon = ({ pokemon, completeData, showCompleteData }) => {
 
