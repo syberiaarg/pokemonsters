@@ -16,7 +16,7 @@ const initialPokemon = {
 };
 
 
-const Pokemon = ({ name, url, childToParent }) => {
+const Pokemon = ({ name, url }) => {
   const [pokemon, setPokemon] = useState(initialPokemon);
   const [completeData, showCompleteData] = useState(false);
 
