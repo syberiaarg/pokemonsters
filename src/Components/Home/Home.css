@@ -1,23 +1,16 @@
 .Home {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: #191970;
-  width: 100%;
-  height: 100%;
-}
-
-.LogoContainer {
-  padding: 11px;
+  min-height: 100vh;
 }
 
 .logoBox {
-  display: inline;
-  width: 500px;
-  height: 184px;
-  margin: 25%;
+  display: inline-block;
+  width: 400px;
 }
 
 .logo {
-  max-width: 50%;
+  max-width: 75%;
+  padding-top: 75px;
 }
