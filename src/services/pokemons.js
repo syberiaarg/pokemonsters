@@ -23,8 +23,22 @@ export const showPokemon = async (name) => {
       ...data,
       sprite: data.sprites.front_default,
       altsprite: data.sprites.back_default,
-      image: data.sprites.other.dream_world.front_default,
+      image: data.sprites.other['official-artwork'].front_default,
     };
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const teamList = async (page) => {
+  try {
+    const { data } = await instance.get(POKEMON, {
+      params: {
+        limit: 4,
+        offset: page,
+      },
+    });
+    return data;
   } catch (error) {
     console.error(error);
   }

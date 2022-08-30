@@ -5,3 +5,9 @@ export const Pokebutton = (props) => (
         {props.string}
     </button>
 )
+
+export const Mailbutton = (props) => (
+    <button className="mailButton" onClick={props.onClick}>
+        {props.string}
+    </button>
+)

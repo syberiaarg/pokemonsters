@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { showPokemon } from "src/services";
-import { firstLetterUpper } from "src/utils";
+import { firstLetterUpper, wordSpace } from "src/utils";
 import CompletePokemon from "../CompletePokemon";
 import "./Pokemon.css";
 
@@ -34,7 +34,7 @@ const Pokemon = ({ name, url }) => {
           <div className="pokeInfo">
             <div className="name">
               <label>
-                <strong>{firstLetterUpper(name)}</strong>
+                <strong>{firstLetterUpper(wordSpace(name))}</strong>
               </label>
             </div>
             <label className="pokeID">N°: {pokemon.id}</label>
