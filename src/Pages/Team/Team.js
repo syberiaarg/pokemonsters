@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { teamList } from "src/services";
-import { Mailbutton, Pokebutton } from "src/Components/Button";
+import { Changebutton, Mailbutton } from "src/Components/Button";
 import Pokemons from '../../Components/TeamBuilder/Pokemons'
 import './Team.css'
 
@@ -13,17 +13,16 @@ const TeamBuilder = () => {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    const [page, setPage] = useState(getRandomInt(0, 1154));
+    const [ids, setIds] = useState(Array(4).fill().map(() => getRandomInt(0, 1000, 4)));
     const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
-        teamList(page).then((data) => setPokemons(data.results));
-    }, [page]);
-
+        teamList(ids).then((data) => setPokemons(data));
+    }, [ids]);
 
 
     const changeTeam = () => {
-        setPage(getRandomInt(0, 1154));
+        setIds(Array(4).fill().map(() => getRandomInt(0, 1000, 4)));
     };
 
     return (
@@ -32,7 +31,7 @@ const TeamBuilder = () => {
                 {pokemons.map(({ name, url }) => (
                     <Pokemons key={name} name={name} url={url} />
                 ))}
-                <Pokebutton string={"Change Your Team"} onClick={changeTeam} />
+                <Changebutton string={"Change Your Team"} onClick={changeTeam} />
             </div>
             <Mailbutton string={'Mail Me'} />
         </div>

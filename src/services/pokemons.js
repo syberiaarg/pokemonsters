@@ -1,9 +1,9 @@
 import { POKEMON } from "src/constants";
-import { instance } from "src/services";
+import { pokeAxios } from "src/services";
 
 export const getPokemons = async (page) => {
   try {
-    const { data } = await instance.get(POKEMON, {
+    const { data } = await pokeAxios.get(POKEMON, {
       params: {
         limit: page * 12,
         offset: 0,
@@ -17,7 +17,7 @@ export const getPokemons = async (page) => {
 
 export const showPokemon = async (name) => {
   try {
-    const { data } = await instance.get(`${POKEMON}/${name}`);
+    const { data } = await pokeAxios.get(`${POKEMON}/${name}`);
 
     return {
       ...data,
@@ -30,15 +30,13 @@ export const showPokemon = async (name) => {
   }
 };
 
-export const teamList = async (page) => {
+export const teamList = async (ids) => {
   try {
-    const { data } = await instance.get(POKEMON, {
-      params: {
-        limit: 4,
-        offset: page,
-      },
-    });
-    return data;
+    const team = ids.map(async (id) => {
+      const { data } = await pokeAxios.get(`${POKEMON}/${id}`);
+      return data
+    })
+    return Promise.all(team)
   } catch (error) {
     console.error(error);
   }

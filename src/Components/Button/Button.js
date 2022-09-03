@@ -6,6 +6,12 @@ export const Pokebutton = (props) => (
     </button>
 )
 
+export const Changebutton = (props) => (
+    <button className="changeButton" onClick={props.onClick}>
+        {props.string}
+    </button>
+)
+
 export const Mailbutton = (props) => (
     <button className="mailButton" onClick={props.onClick}>
         {props.string}
