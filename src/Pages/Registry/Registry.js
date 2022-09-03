@@ -34,9 +34,9 @@ const theme = createTheme({
 });
 
 const userInit = {
-    email: "",
-    password: "",
-    secondpass: "",
+    email: "example-email@gmail.com",
+    password: "first-password",
+    secondpass: "second-password",
 }
 
 
@@ -54,27 +54,38 @@ const Registry = () => {
             secondname: data.get('secondName'),
             lastname: data.get('lastName'),
             email: data.get('email'),
-            password: data.get('password')
-        });
-        createUser({
-            name: data.get('firstName'),
-            secondname: data.get('secondName'),
-            lastname: data.get('lastName'),
-            email: data.get('email'),
-        })
-        setValidUser({
-            email: data.get('email'),
             password: data.get('password'),
             secondpass: data.get('confirmPass')
-        })
-        setLoginPass(!loginPass)
+        });
+
+        // SPACE BREAKS THE FORM AND BUGGY COMPONENT RENDERING
+        // LOGIN UP - NEED TO UPDATE THE LOGIN PASS
+
+        data.get('password') == validUser.password ?
+            (setLoginPass(!loginPass) &&
+                setValidUser({
+                    email: data.get('email'),
+                    password: data.get('password'),
+                    secondpass: data.get('confirmPass')
+                })) :
+            (data.get('confirmPass') == validUser.secondpass ?
+                (setValidUser({
+                    email: data.get('email'),
+                    password: data.get('password'),
+                    secondpass: data.get('confirmPass')
+                })) : (data.get('password') == data.get('confirmPass') ?
+                    (setValidUser({
+                        email: data.get('email'),
+                        password: data.get('password'),
+                        secondpass: data.get('confirmPass')
+                    })) : alert('Passwords dont match')))
     };
 
     return (
         loginPass ? (
             <div className='teamForm'>
                 <ThemeProvider theme={theme}>
-                    <Container component="main" maxWidth="xl">
+                    <Container component="main" maxWidth="sm">
                         <CssBaseline />
                         <Box
                             sx={{
@@ -165,7 +176,7 @@ const Registry = () => {
                     </Container>
                 </ThemeProvider>
             </div>
-        ) : (validUser.password == validUser.secondpass ? (<Login validUser={validUser} />) : (<Registry />))
+        ) : (<Login validUser={validUser} />)
     );
 }
 
