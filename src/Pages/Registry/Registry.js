@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -34,52 +34,37 @@ const theme = createTheme({
 });
 
 const userInit = {
-    email: "example-email@gmail.com",
-    password: "first-password",
-    secondpass: "second-password",
+    name: "",
+    secondname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    secondpass: "",
 }
-
 
 const Registry = () => {
 
     const [validUser, setValidUser] = useState(userInit);
-    const [loginPass, setLoginPass] = useState(true);
+    const [loginPass, setLoginPass] = useState(localStorage.getItem('user') !== null ? false : true);
+    const [isValid, setIsValid] = useState(false);
 
 
-    const handleSubmit = (event) => {
+    useEffect(() => {
+        if (validUser.password === validUser.secondpass && validUser.password !== "" && validUser.secondpass !== "") {
+            setIsValid(true)
+        } else {
+            setIsValid(false)
+        }
+
+        if (localStorage.getItem('user') !== null) { setLoginPass(false) }
+    }, [validUser])
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            name: data.get('firstName'),
-            secondname: data.get('secondName'),
-            lastname: data.get('lastName'),
-            email: data.get('email'),
-            password: data.get('password'),
-            secondpass: data.get('confirmPass')
-        });
-
-        // SPACE BREAKS THE FORM AND BUGGY COMPONENT RENDERING
-        // LOGIN UP - NEED TO UPDATE THE LOGIN PASS
-
-        data.get('password') == validUser.password ?
-            (setLoginPass(!loginPass) &&
-                setValidUser({
-                    email: data.get('email'),
-                    password: data.get('password'),
-                    secondpass: data.get('confirmPass')
-                })) :
-            (data.get('confirmPass') == validUser.secondpass ?
-                (setValidUser({
-                    email: data.get('email'),
-                    password: data.get('password'),
-                    secondpass: data.get('confirmPass')
-                })) : (data.get('password') == data.get('confirmPass') ?
-                    (setValidUser({
-                        email: data.get('email'),
-                        password: data.get('password'),
-                        secondpass: data.get('confirmPass')
-                    })) : alert('Passwords dont match')))
+        const status = await createUser(validUser);
+        alert(status)
     };
+
 
     return (
         loginPass ? (
@@ -105,6 +90,7 @@ const Registry = () => {
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm={4}>
                                         <TextField
+                                            onChange={(event) => setValidUser({ ...validUser, name: event.target.value })}
                                             autoComplete="given-name"
                                             name="firstName"
                                             required
@@ -112,54 +98,66 @@ const Registry = () => {
                                             id="firstName"
                                             label="First Name"
                                             autoFocus
+                                            value={validUser.name}
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={4}>
                                         <TextField
+                                            onChange={(event) => setValidUser({ ...validUser, secondname: event.target.value })}
                                             fullWidth
                                             id="secondName"
                                             label="Second Name"
                                             name="secondName"
+                                            value={validUser.secondname}
                                         />
                                     </Grid>
                                     <Grid item xs={12} sm={4}>
                                         <TextField
+                                            onChange={(event) => setValidUser({ ...validUser, lastname: event.target.value })}
                                             required
                                             fullWidth
                                             id="lastName"
                                             label="Last Name"
                                             name="lastName"
                                             autoComplete="family-name"
+                                            value={validUser.lastname}
                                         />
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
+                                            onChange={(event) => setValidUser({ ...validUser, email: event.target.value })}
                                             required
                                             fullWidth
                                             id="email"
                                             label="Email Address"
                                             name="email"
                                             autoComplete="email"
+                                            value={validUser.email}
+                                            type={"email"}
                                         />
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
+                                            onChange={(event) => setValidUser({ ...validUser, password: event.target.value })}
                                             type={"password"}
                                             required
                                             fullWidth
                                             id="password"
                                             label="Password"
                                             name="password"
+                                            value={validUser.password}
                                         />
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
+                                            onChange={(event) => setValidUser({ ...validUser, secondpass: event.target.value })}
                                             type={"password"}
                                             required
                                             fullWidth
                                             id="confirmPass"
                                             label="Confirm Password"
                                             name="confirmPass"
+                                            value={validUser.secondpass}
                                         />
                                     </Grid>
                                 </Grid>
@@ -167,6 +165,7 @@ const Registry = () => {
                                     type="submit"
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2 }}
+                                    disabled={!isValid}
                                 >
                                     SIGN UP
                                 </Button>
@@ -176,7 +175,7 @@ const Registry = () => {
                     </Container>
                 </ThemeProvider>
             </div>
-        ) : (<Login validUser={validUser} />)
+        ) : (<Login />)
     );
 }
 
