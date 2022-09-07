@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Enviroment
+
+Creates .env file
+
+REACT_APP_VERSION=0.1.0
+REACT_APP_NAME=Pokemonsters
+
+REACT_APP_API_BASE_URL=https://pokeapi.co/api/v2/
+
 ## Available Scripts
 
 In the project directory, you can run:

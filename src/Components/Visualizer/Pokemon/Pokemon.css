@@ -1,0 +1,79 @@
+.pokeData {
+  display: flex;
+  align-items: center;
+  background-color: #263238;
+  opacity: 90%;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: "Flexo";
+  width: 20rem;
+  height: 12rem;
+  justify-content: left;
+  text-align: left;
+  color: white;
+  padding: 0.5rem;
+  position: relative;
+  transition-delay: 200ms;
+  transition-duration: 200ms;
+  transition-property: all;
+}
+
+.pokeData:hover {
+  box-shadow: inset 0 0 0 2px rgb(255, 255, 255);
+}
+
+.expandedData {
+  width: 200px;
+}
+
+.pokeInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.name label {
+  font-size: 24px;
+}
+
+.pokeID {
+  font-size: 17px;
+}
+
+.pokeForm {
+  display: flex;
+}
+
+.pokeType {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.pokeType label {
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.pokeSprite {
+  min-width: 180px;
+  max-height: 180px;
+  position: absolute;
+  margin-left: 10em;
+}
+
+.pokeSprite img {
+  width: 90%;
+}
+
+.type {
+  border: outset 0, 5px;
+  border-radius: 5px;
+  padding: 3px;
+  color: black;
+}
+
+.type label {
+  margin-left: auto;
+  margin-right: auto;
+}

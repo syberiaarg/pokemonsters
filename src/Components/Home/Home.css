@@ -1,0 +1,16 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  background-color: #191970;
+  min-height: 100vh;
+}
+
+.logoBox {
+  display: inline-block;
+  width: 400px;
+}
+
+.logo {
+  max-width: 75%;
+  padding-top: 75px;
+}
