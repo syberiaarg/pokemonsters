@@ -32,7 +32,7 @@ const useUser = () => {
       setShowAlert({ show: true, severity: 'error', message: "User wasn't created" })
     }
     setIsLoading(false)
-    console.log(res);
+    console.log(res, 'Esta es la respuesta');
   }
 
   return {
