@@ -1,0 +1,23 @@
+.types {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.types label {
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.type {
+  border: outset 0, 5px;
+  border-radius: 5px;
+  padding: 3px;
+  margin-right: 6px;
+  color: black;
+}
+
+.type label {
+  margin-left: auto;
+  margin-right: auto;
+}
