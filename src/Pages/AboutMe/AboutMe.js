@@ -5,7 +5,7 @@ import { ReactComponent as HtmlSvg } from '../../Structure/Images/html-1.svg'
 import { ReactComponent as CssSvg } from '../../Structure/Images/css-3.svg'
 import './AboutMe.css'
 
-const about = () => (
+const AboutMe = () => (
     <body className="containerDoc">
         <div className="entireDoc">
             <header className="title">SANTIAGO GIMENEZ</header>
@@ -38,4 +38,4 @@ const about = () => (
     </body>
 )
 
-export default about
+export default AboutMe

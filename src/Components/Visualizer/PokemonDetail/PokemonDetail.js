@@ -1,7 +1,7 @@
 import React from "react";
 import { firstLetterUpper, wordSpace } from "src/utils";
 
-const CompletePokemon = ({ pokemon, completeData, showCompleteData }) => {
+const PokemonDetail = ({ pokemon, completeData, showCompleteData }) => {
 
   return (
     <div
@@ -26,4 +26,4 @@ const CompletePokemon = ({ pokemon, completeData, showCompleteData }) => {
   )
 };
 
-export default CompletePokemon;
+export default PokemonDetail;
