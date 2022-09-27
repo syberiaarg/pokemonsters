@@ -1,7 +1,3 @@
-# VIDEO YT DEPLOY = https://youtu.be/BZvFcbEIMtk
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Enviroment
 
 Creates .env file
