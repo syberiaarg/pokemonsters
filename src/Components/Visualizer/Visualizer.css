@@ -1,7 +1,7 @@
 .ListContainer {
   border-radius: 10px;
   height: 70vh;
-  width: 1500px;
+  width: 75%;
   overflow-y: scroll;
   background: linear-gradient(0deg, #4b6cb7 0%, #182848 100%);
   margin-top: 25px;
