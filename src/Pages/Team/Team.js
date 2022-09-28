@@ -36,6 +36,8 @@ const TeamBuilder = () => {
             <Mailbutton string={'Mail Me'} />
         </div>
     );
+
+
 };
 
 export default TeamBuilder

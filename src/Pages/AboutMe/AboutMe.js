@@ -4,9 +4,10 @@ import { ReactComponent as ReactSvg } from "../../Structure/Images/react-2.svg";
 import { ReactComponent as HtmlSvg } from "../../Structure/Images/html-1.svg";
 import { ReactComponent as CssSvg } from "../../Structure/Images/css-3.svg";
 import "./AboutMe.css";
+import PropTypes from "prop-types";
 
 const AboutMe = () => (
-  <body className="containerDoc">
+  <main className="containerDoc">
     <div className="entireDoc">
       <header className="title">SANTIAGO GIMENEZ</header>
       <div className="firstPart">
@@ -36,7 +37,16 @@ const AboutMe = () => (
         <div className="titleArt">TRAINEE FRONT END DEVELOPER</div>
       </div>
     </div>
-  </body>
+  </main>
 );
+
+
+AboutMe.propTypes = {
+  img: PropTypes.string,
+  JsSvg: PropTypes.string,
+  ReactSvg: PropTypes.string,
+  HtmlSvg: PropTypes.string,
+  CssSvg: PropTypes.string,
+}
 
 export default AboutMe;

@@ -2,7 +2,7 @@ import { firstLetterUpper } from "src/utils";
 import styles from "./PokemonTypes.module.css";
 import PropTypes from "prop-types";
 
-const PokemonTypes = ({ types }) => (
+const PokemonTypes = ({ types, id }) => (
   <div className={styles.types}>
     {types.map(({ type: { name } }) => (
       <div
@@ -23,6 +23,7 @@ PokemonTypes.propTypes = {
       type: PropTypes.shape({ name: PropTypes.string }),
     })
   ),
+  id: PropTypes.number,
 };
 
 PokemonTypes.defaultProps = {
@@ -32,6 +33,7 @@ PokemonTypes.defaultProps = {
       type: { name: "normal" },
     },
   ],
+  id: 1,
 };
 
 export default PokemonTypes;

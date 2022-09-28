@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { showPokemon } from "src/services";
+import React, { useState } from "react";
 import { firstLetterUpper, wordSpace } from "src/utils";
 import PokeImage from "./PokeImage";
 import "./Pokemons.css";
