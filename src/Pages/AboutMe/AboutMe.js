@@ -14,7 +14,7 @@ const AboutMe = () => (
         <aside className="sidePic">
           <img
             src={require("../../Structure/Images/santi-2.jpg")}
-            alt="profilePic"
+            alt="Profile Pic"
           />
         </aside>
         <ol id="data">

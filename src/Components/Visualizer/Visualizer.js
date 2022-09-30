@@ -49,14 +49,11 @@ Visualizer.propTypes = {
   pokemons: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      showCompleteData: PropTypes.func,
     }).isRequired
   ),
 }
 
 
-
-// ES MEJOR ASI? O DECLARAR PROPTYPES POR SEPARADO (CHILD COMPONENTS) ? //
 
 /* Visualizer.propTypes = {
   page: PropTypes.number,
