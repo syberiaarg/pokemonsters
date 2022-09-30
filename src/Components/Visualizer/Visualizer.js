@@ -44,9 +44,21 @@ const Visualizer = () => {
   );
 };
 
-// ES MEJOR ASI? O DECLARAR PROPTYPES POR SEPARADO (CHILD COMPONENTS) ? //
 
 Visualizer.propTypes = {
+  pokemons: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      showCompleteData: PropTypes.func,
+    }).isRequired
+  ),
+}
+
+
+
+// ES MEJOR ASI? O DECLARAR PROPTYPES POR SEPARADO (CHILD COMPONENTS) ? //
+
+/* Visualizer.propTypes = {
   page: PropTypes.number,
   setPage: PropTypes.func,
   showCompleteData: PropTypes.func,
@@ -73,6 +85,6 @@ Visualizer.defaultProps = {
   PokemonDetail: null,
   Pokebutton: null,
   getMorePokemons: () => { },
-}
+} */
 
 export default Visualizer;

@@ -41,12 +41,4 @@ const AboutMe = () => (
 );
 
 
-AboutMe.propTypes = {
-  img: PropTypes.string,
-  JsSvg: PropTypes.string,
-  ReactSvg: PropTypes.string,
-  HtmlSvg: PropTypes.string,
-  CssSvg: PropTypes.string,
-}
-
 export default AboutMe;
