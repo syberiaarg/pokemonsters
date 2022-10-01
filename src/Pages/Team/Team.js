@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { teamList } from "src/services";
 import { Changebutton, Mailbutton } from "src/Components/Button";
-import Pokemons from '../../Components/TeamBuilder/Pokemons'
+import Pokemon from '../../Components/Visualizer/Pokemon'
 import './Team.css'
 
 
@@ -13,7 +13,7 @@ const TeamBuilder = () => {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    const [ids, setIds] = useState(Array(4).fill().map(() => getRandomInt(0, 1000, 4)));
+    const [ids, setIds] = useState(Array(4).fill().map(() => getRandomInt(0, 905, 4)));
     const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
@@ -21,15 +21,17 @@ const TeamBuilder = () => {
     }, [ids]);
 
 
+    // ID's 950++ DEVUELVE 404 - NOT FOUND PokeAPI // Manually solved
+
     const changeTeam = () => {
-        setIds(Array(4).fill().map(() => getRandomInt(0, 1000, 4)));
+        setIds(Array(4).fill().map(() => getRandomInt(0, 905, 4)));
     };
 
     return (
         <div className="listFont">
             <div className="teamList">
-                {pokemons.map(({ name, url }) => (
-                    <Pokemons key={name} name={name} url={url} />
+                {pokemons.map((pokemon) => (
+                    <Pokemon key={pokemon.id} pokemon={pokemon} />
                 ))}
                 <Changebutton string={"Change Your Team"} onClick={changeTeam} />
             </div>

@@ -38,7 +38,10 @@ export const teamList = async (ids) => {
   try {
     const team = ids.map(async (id) => {
       const { data } = await pokeAxios.get(`${POKEMON}/${id}`);
-      return data;
+      return {
+        ...data,
+        sprite: data.sprites.front_default,
+      }
     });
     return Promise.all(team);
   } catch (error) {

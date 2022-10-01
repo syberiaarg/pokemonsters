@@ -2,11 +2,12 @@
     background-color: #191970;
     height: 100vh;
     width: 100%;
-    padding-top: 65px;
     position: relative;
 }
 
 .teamList {
     display: flex;
     flex-direction: column;
+    padding-top: 70px;
+    gap: 21px
 }

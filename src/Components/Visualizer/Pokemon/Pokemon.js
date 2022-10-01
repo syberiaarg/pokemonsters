@@ -55,6 +55,8 @@ Pokemon.defaultProps = {
     height: 4,
     sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
   },
+
+  showCompleteData: () => { },
 };
 
 export default Pokemon;
