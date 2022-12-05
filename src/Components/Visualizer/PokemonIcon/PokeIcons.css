@@ -1,0 +1,12 @@
+.pokeIcons {
+    opacity: 100%;
+}
+
+.pokeIcons img {
+    width: 50px;
+}
+
+.background {
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -7,8 +7,8 @@ export const getPokemons = async (page) => {
       data: { results },
     } = await pokeAxios.get(POKEMON, {
       params: {
-        limit: page * 12,
-        offset: 0,
+        limit: 3,
+        offset: page * 3,
       },
     });
     return await Promise.all(
@@ -25,9 +25,10 @@ export const getPokemon = async (name) => {
 
     return {
       ...data,
-      sprite: data.sprites.front_default,
+      sprite: data.sprites.other.dream_world.front_default,
       altsprite: data.sprites.back_default,
       image: data.sprites.other["official-artwork"].front_default,
+      icon: data.sprites.versions["generation-iii"].emerald.front_default,
     };
   } catch (error) {
     console.error(error);
@@ -44,6 +45,24 @@ export const teamList = async (ids) => {
       }
     });
     return Promise.all(team);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const listPokemons = async (listPage) => {
+  try {
+    const {
+      data: { results },
+    } = await pokeAxios.get(POKEMON, {
+      params: {
+        limit: listPage,
+        offset: 0,
+      },
+    });
+    return await Promise.all(
+      results.map(async ({ name }) => await getPokemon(name))
+    );
   } catch (error) {
     console.error(error);
   }

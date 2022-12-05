@@ -1,17 +1,12 @@
-.ListContainer {
-  border-radius: 10px;
-  height: 70vh;
-  width: 75%;
-  overflow-y: scroll;
-  background: linear-gradient(0deg, #4b6cb7 0%, #182848 100%);
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
+.Visualizer {
+  width: 100%;
+  height: 75%;
+
 }
 
-.ListContainer::-webkit-scrollbar {
-  width: 6px;
-  height: 4px;
+.ListContainer {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ListContainer::-webkit-scrollbar-thumb {
@@ -28,4 +23,12 @@
   gap: 10px;
   padding: 1rem;
   position: relative;
+}
+
+.listSelector {
+
+  display: grid;
+  grid-template-columns: repeat(15, 4rem);
+  justify-content: center;
+  margin-top: 100px;
 }

@@ -21,7 +21,7 @@ const TeamBuilder = () => {
     }, [ids]);
 
 
-    // ID's 905++ DEVUELVE 404 - NOT FOUND PokeAPI // Manually solved
+    // ID's 950++ DEVUELVE 404 - NOT FOUND PokeAPI // Manually solved
 
     const changeTeam = () => {
         setIds(Array(4).fill().map(() => getRandomInt(0, 905, 4)));

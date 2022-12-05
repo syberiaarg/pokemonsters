@@ -1,45 +1,63 @@
 import React, { useEffect, useState } from "react";
-import { getPokemons } from "src/services";
+import { getPokemons, listPokemons } from "src/services";
 import { Pokebutton } from "../Button";
 import Pokemon from "./Pokemon";
+import PokeIcons from "./PokemonIcon/PokeIcons";
 import PokemonDetail from "./PokemonDetail";
 import "./Visualizer.css";
 import PropTypes from "prop-types";
 
+
 const Visualizer = () => {
   const [page, setPage] = useState(1);
+  const [listPage, setList] = useState(105);
   const [pokemons, setPokemons] = useState([]);
+  const [pokeIcons, setIcons] = useState([]);
   const [completeData, showCompleteData] = useState(false);
 
   useEffect(() => {
     getPokemons(page).then((data) => setPokemons(data));
-  }, [page]);
+
+    listPokemons(listPage).then((data) => setIcons(data));
+
+  }, [page, listPage]);
 
   const getMorePokemons = () => {
     setPage(page + 1);
   };
 
+
   return (
-    <div className="ListContainer">
-      {!completeData ? (
-        <div className="PokemonList">
-          {pokemons.map((pokemon) => (
-            <Pokemon
-              key={pokemon.id}
-              pokemon={pokemon}
-              showCompleteData={showCompleteData}
-            />
-          ))}
-        </div>
-      ) : (
-        <PokemonDetail
-          pokemon={completeData}
-          showCompleteData={showCompleteData}
-        />
-      )}
-      {!completeData && (
-        <Pokebutton string={"Load More Pokemons"} onClick={getMorePokemons} />
-      )}
+    <div className="Visualizer">
+      <div className="ListContainer">
+        {!completeData ? (
+          <div className="PokemonList">
+            {pokemons.map((pokemon) => (
+              <Pokemon
+                key={pokemon.id}
+                pokemon={pokemon}
+                showCompleteData={showCompleteData}
+              />
+            ))}
+          </div>
+        ) : (
+          <PokemonDetail
+            pokemon={completeData}
+            showCompleteData={showCompleteData}
+          />
+        )}
+        {!completeData && (
+          <Pokebutton string={"Load More Pokemons"} onClick={getMorePokemons} />
+        )}
+      </div>
+      <div className="listSelector">
+        {pokeIcons.map((pokemon) => (
+          <PokeIcons
+            key={pokemon.id}
+            pokemon={pokemon}
+          />
+        ))}
+      </div>
     </div>
   );
 };
