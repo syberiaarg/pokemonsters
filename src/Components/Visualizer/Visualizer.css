@@ -26,9 +26,14 @@
 }
 
 .listSelector {
-
   display: grid;
   grid-template-columns: repeat(15, 4rem);
+  grid-template-rows: repeat(7, 3.5rem);
+  grid-auto-flow: column;
   justify-content: center;
-  margin-top: 100px;
+  align-content: center;
+  width: 1000px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }

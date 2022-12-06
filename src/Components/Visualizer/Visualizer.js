@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getPokemons, listPokemons } from "src/services";
-import { Pokebutton } from "../Button";
+import { Pokebutton, ArrowButton } from "../Button";
 import Pokemon from "./Pokemon";
 import PokeIcons from "./PokemonIcon/PokeIcons";
 import PokemonDetail from "./PokemonDetail";
@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 
 const Visualizer = () => {
   const [page, setPage] = useState(1);
-  const [listPage, setList] = useState(105);
+  const [listPage, setList] = useState(0);
   const [pokemons, setPokemons] = useState([]);
   const [pokeIcons, setIcons] = useState([]);
   const [completeData, showCompleteData] = useState(false);
@@ -25,6 +25,12 @@ const Visualizer = () => {
   const getMorePokemons = () => {
     setPage(page + 1);
   };
+
+  const expandList = () => {
+    setList(listPage + 105);
+  };
+
+
 
 
   return (
@@ -57,6 +63,7 @@ const Visualizer = () => {
             pokemon={pokemon}
           />
         ))}
+        <ArrowButton className="pokeExpand" onClick={expandList} />
       </div>
     </div>
   );

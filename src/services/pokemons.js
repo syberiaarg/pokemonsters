@@ -56,8 +56,8 @@ export const listPokemons = async (listPage) => {
       data: { results },
     } = await pokeAxios.get(POKEMON, {
       params: {
-        limit: listPage,
-        offset: 0,
+        limit: 105,
+        offset: listPage,
       },
     });
     return await Promise.all(

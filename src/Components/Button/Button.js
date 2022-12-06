@@ -18,3 +18,7 @@ export const Mailbutton = (props) => (
         {props.string}
     </button>
 )
+
+export const ArrowButton = (props) => (
+    <ArrowForwardIosIcon onClick={props.onClick} />
+)
